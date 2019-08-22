@@ -4,6 +4,11 @@ variable "TFE_ORGANIZATION"{
 }
 variable "DEMOSTACK_WORKSPACE"{
     description = "The name of the Demostack workspacewhich you want the nomad jobs to run in"
+<<<<<<< HEAD
     #default = "Guy-AWS-Demostack"
     default = "Andre-aws-demostack"
+=======
+    default = "Guy-AWS-Demostack"
+    #default = "ricardo-aws-demostack"
+>>>>>>> upstream/master
 }
