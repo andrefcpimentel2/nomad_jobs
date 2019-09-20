@@ -26,6 +26,11 @@ resource "nomad_job" "hashibo" {
   jobspec = "${file("./hashibo.nomad")}"
 }
 
-
+resource "nomad_job" "ldap-server" {
+  jobspec = "${file("./ldap-server.nomad")}"
+}
+resource "nomad_job" "phpldapadmin" {
+  jobspec = "${file("./phpldapadmin.nomad")}"
+}
 
 
