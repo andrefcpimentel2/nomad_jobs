@@ -18,19 +18,37 @@ data "terraform_remote_state" "demostack" {
 
 
 # Register a job
-resource "nomad_job" "nginx-pki" {
-  jobspec = "${file("./nginx-pki.nomad")}"
+# resource "nomad_job" "nginx-pki" {
+#   jobspec = "${file("./nginx-pki.nomad")}"
+# }
+
+# resource "nomad_job" "hashibo" {
+#   jobspec = "${file("./hashibo.nomad")}"
+# }
+
+# resource "nomad_job" "ldap-server" {
+#   jobspec = "${file("./ldap-server.nomad")}"
+# }
+# resource "nomad_job" "phpldapadmin" {
+#   jobspec = "${file("./phpldapadmin.nomad")}"
+# }
+
+resource "nomad_job" "frontend" {
+  jobspec = "${file("./hackaton_q3/frontend.nomad")}"
 }
 
-resource "nomad_job" "hashibo" {
-  jobspec = "${file("./hashibo.nomad")}"
+resource "nomad_job" "frontend" {
+  jobspec = "${file("./hackaton_q3/frontend.nomad")}"
 }
 
-resource "nomad_job" "ldap-server" {
-  jobspec = "${file("./ldap-server.nomad")}"
-}
-resource "nomad_job" "phpldapadmin" {
-  jobspec = "${file("./phpldapadmin.nomad")}"
+resource "nomad_job" "product-api" {
+  jobspec = "${file("./hackaton_q3/product-api.nomad")}"
 }
 
+resource "nomad_job" "product-db" {
+  jobspec = "${file("./hackaton_q3/product-db.nomad")}"
+}
 
+resource "nomad_job" "public-api" {
+  jobspec = "${file("./hackaton_q3/public-api.nomad")}"
+}
