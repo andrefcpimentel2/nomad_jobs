@@ -5,8 +5,8 @@ job "payments" {
     task "payments" {
       driver = "docker"
       constraint {
-        attribute = "${attr.os.name}"
-        value = "ubuntu"
+        attribute = "${attr.platform.aws.instance-type}"
+        value     = "m4.large"
       }
       config {
         image = "hashicorpdemoapp/payments:v0.0.2"

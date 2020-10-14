@@ -5,8 +5,8 @@ job "product-db" {
     task "product-db" {
       driver = "docker"
       constraint {
-        attribute = "${attr.os.name}"
-        value = "ubuntu"
+        attribute = "${attr.platform.aws.instance-type}"
+        value     = "m4.large"
       }
       config {
         image = "hashicorpdemoapp/product-api-db:v0.0.11"

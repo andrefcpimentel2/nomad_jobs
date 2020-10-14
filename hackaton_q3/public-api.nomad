@@ -5,16 +5,15 @@ job "public-api" {
     task "public-api" {
       driver = "docker"
       constraint {
-        attribute = "${attr.os.name}"
-        value = "ubuntu"
+        attribute = "${attr.platform.aws.instance-type}"
+        value     = "m4.large"
       }
       env {
           BIND_ADDRESS = ":8080"
-          PRODUCT_API_URI = "http://product-api.service.consul:9090"
+          PRODUCT_API_URI = "http://workers-0.eu-andrestack.andrestack.aws.hashidemos.io/:9090"
       }
       config {
         image = "hashicorpdemoapp/public-api:v0.0.1"
-        dns_servers = ["127.0.0.1"]
       }
       resources {
         network {
