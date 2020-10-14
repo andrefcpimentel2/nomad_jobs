@@ -29,7 +29,7 @@ server {
         index  index.html index.htm;
     }
     location /api {
-        proxy_pass http://{{ .Address }}:8080;
+        proxy_pass http://public-api-server.service.consul:8080;
     }
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {

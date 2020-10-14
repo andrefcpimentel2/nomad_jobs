@@ -21,7 +21,7 @@ job "product-api" {
 {{ with service "product-db" }}
 {{ with index . 0 }}
 {
-  "db_connection": "host={{ .Address }} port=5432 user=postgres password=password dbname=products sslmode=disable",
+  "db_connection": "host=product-db.service.consul port=5432 user=postgres password=password dbname=products sslmode=disable",
   "bind_address": ":9090",
   "metrics_address": ":9103"
 }
