@@ -34,21 +34,21 @@ data "terraform_remote_state" "demostack" {
 # }
 
 resource "nomad_job" "frontend" {
-  jobspec = "${file("./hackaton_q3/frontend.nomad")}"
+  jobspec = "${file("hackaton_q3/frontend.nomad")}"
 }
 
 resource "nomad_job" "frontend" {
-  jobspec = "${file("./hackaton_q3/frontend.nomad")}"
+  jobspec = "${file("hackaton_q3/frontend.nomad")}"
 }
 
 resource "nomad_job" "product-api" {
-  jobspec = "${file("./hackaton_q3/product-api.nomad")}"
+  jobspec = "${file("hackaton_q3/product-api.nomad")}"
 }
 
 resource "nomad_job" "product-db" {
-  jobspec = "${file("./hackaton_q3/product-db.nomad")}"
+  jobspec = "${file("hackaton_q3/product-db.nomad")}"
 }
 
 resource "nomad_job" "public-api" {
-  jobspec = "${file("./hackaton_q3/public-api.nomad")}"
+  jobspec = "${file("hackaton_q3/public-api.nomad")}"
 }
