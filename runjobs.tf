@@ -33,22 +33,6 @@ data "terraform_remote_state" "demostack" {
 #   jobspec = "${file("./phpldapadmin.nomad")}"
 # }
 
-resource "nomad_job" "payments" {
-  jobspec = "${file("hackaton_q3/payments.nomad")}"
-}
-
-resource "nomad_job" "frontend" {
-  jobspec = "${file("hackaton_q3/frontend.nomad")}"
-}
-
-resource "nomad_job" "product-api" {
-  jobspec = "${file("hackaton_q3/product-api.nomad")}"
-}
-
-resource "nomad_job" "product-db" {
-  jobspec = "${file("hackaton_q3/product-db.nomad")}"
-}
-
-resource "nomad_job" "public-api" {
-  jobspec = "${file("hackaton_q3/public-api.nomad")}"
+resource "nomad_job" "hashicups" {
+  jobspec = "${file("hackaton_q3/hashicups.nomad")}"
 }
