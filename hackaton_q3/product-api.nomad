@@ -1,7 +1,7 @@
 # This Works - docker run -d -p 9090:9090 -v /app/conf.json:/conf.json hashicorpdemoapp/product-api:v0.0.11
 # Test - curl http://localhost:9090/coffees | jq
 job "product-api" {
-  datacenters = ["eu-west-2","ukwest","sa-east-1","ap-northeast-1","dc1","europe-west3-dc"]
+  datacenters = ["eu-west-2"]
   group "hashicups" {
     count = 1
     task "product-api" {

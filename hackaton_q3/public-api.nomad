@@ -1,5 +1,5 @@
 job "public-api" {
-  datacenters = ["eu-west-2","ukwest","sa-east-1","ap-northeast-1","dc1","europe-west3-dc"]
+  datacenters = ["eu-west-2"]
   group "hashicups" {
     count = 1
     task "public-api" {
