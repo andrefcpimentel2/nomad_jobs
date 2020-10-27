@@ -1,7 +1,7 @@
 # For full documentation and examples, see
 #     https://www.nomadproject.io/docs/job-specification/job.html
 job "Oracle" {
-  datacenters = ["eu-west-2a","eu-west-2b","eu-west-2c"]
+   datacenters = ["eu-west-2","ukwest","sa-east-1","ap-northeast-1","dc1","europe-west3-dc"]
   type = "service"
 
   group "DB_XS" {
@@ -46,6 +46,18 @@ env {
         name = "oracle"
         tags = ["urlprefix-/oracle strip=/oracle"]
         port = "apex"
+
+        check {
+          name     = "alive"
+          type     = "tcp"
+          interval = "10s"
+          timeout  = "2s"
+        }
+      }
+      service {
+        name = "oracledb"
+        tags = ["urlprefix-/oracledb strip=/oracledb"]
+        port = "db"
 
         check {
           name     = "alive"
