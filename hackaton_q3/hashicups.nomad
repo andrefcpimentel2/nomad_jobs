@@ -109,6 +109,7 @@ job "hashicups" {
   "metrics_address": ":9103"
 }
 EOF
+        change_mode   = "restart"
       }
 
       # Task relevant environment variables necessary
