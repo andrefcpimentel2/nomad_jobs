@@ -104,7 +104,7 @@ job "hashicups" {
         destination   = "/secrets/db-creds"
         data = <<EOF
 {
-  "db_connection": "host=10.1.1.23 port=5432 user=root password=password dbname=products sslmode=disable",
+  "db_connection": "host=workers-0.hackatonq3.andrestack.aws.hashidemos.io port=5432 user=root password=password dbname=products sslmode=disable",
   "bind_address": ":9090",
   "metrics_address": ":9103"
 }
