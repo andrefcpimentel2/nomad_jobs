@@ -104,12 +104,11 @@ job "hashicups" {
         destination   = "/secrets/db-creds"
         data = <<EOF
 {
-  "db_connection": "host=workers-0.eu-andrestack.andrestack.aws.hashidemos.io port=5432 user=root password=password dbname=products sslmode=disable",
+  "db_connection": "host=10.1.1.23 port=5432 user=root password=password dbname=products sslmode=disable",
   "bind_address": ":9090",
   "metrics_address": ":9103"
 }
 EOF
-        change_mode   = "restart"
       }
 
       # Task relevant environment variables necessary
@@ -257,7 +256,8 @@ resolver 172.17.0.1 valid=1s;
 server {
     listen       80;
     server_name  localhost;
-    set $upstream_endpoint workers-0.eu-andrestack.andrestack.aws.hashidemos.io;
+    #set $upstream_endpoint http://workers-0.hackatonq3.andrestack.aws.hashidemos.io;
+    set $upstream_endpoint 10.1.1.23;
     location / {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
