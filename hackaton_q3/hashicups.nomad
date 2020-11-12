@@ -256,8 +256,8 @@ resolver 172.17.0.1 valid=1s;
 server {
     listen       80;
     server_name  localhost;
-    #set $upstream_endpoint http://workers-0.hackatonq3.andrestack.aws.hashidemos.io;
-    set $upstream_endpoint 10.1.1.23;
+    set $upstream_endpoint workers-0.hackatonq3.andrestack.aws.hashidemos.io;
+    #set $upstream_endpoint 10.1.1.23;
     location / {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
