@@ -175,12 +175,12 @@ EOF
       # Task relevant environment variables necessary
       env = {
         BIND_ADDRESS = ":8080"
-        PRODUCT_API_URI = "http://workers-0.eu-andrestack.andrestack.aws.hashidemos.io:9090"
+        PRODUCT_API_URI = "http://workers-0.hackatonq3.andrestack.aws.hashidemos.io:9090"
       }
 
       # Public-api Docker image location and configuration
       config {
-        image = "hashicorpdemoapp/public-api:v0.0.1"
+        image = "hashicorpdemoapp/public-api:v0.0.2"
 
         port_map {
           pub_api = 8080
@@ -252,25 +252,19 @@ EOF
       # Creation of the NGINX configuration file
       template {
         data = <<EOF
-resolver 172.17.0.1 valid=1s;
 server {
     listen       80;
     server_name  localhost;
-    set $upstream_endpoint workers-0.hackatonq3.andrestack.aws.hashidemos.io;
-    #set $upstream_endpoint 10.1.1.23;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    proxy_set_header Host $host;
     location / {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
     }
-    # Proxy pass the api location to save CORS
-    # Use location exposed by Consul connect
     location /api {
-        proxy_pass http://$upstream_endpoint:8080;
-        # Need the next 4 lines. Else browser might think X-site.
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "Upgrade";
-        proxy_set_header Host $host;
+        proxy_pass http://workers-0.hackatonq3.andrestack.aws.hashidemos.io:8080;
     }
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
