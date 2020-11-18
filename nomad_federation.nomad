@@ -6,7 +6,7 @@ job "nomad_federation" {
   task "wan_join" {
        constraint {
         attribute = "${meta.name}"
-        value     = "EU-guystack-server-0"
+        value     = "EU-andrestack-server-0"
       }
     driver = "raw_exec"
 

@@ -1,7 +1,7 @@
 # Control Groups Demo
 
 ## Configure LDAP
-* login to: http://fabio.eu-guystack.hashidemos.io:9999/phpldapadmin-server/
+* login to: http://fabio.eu-andrestack.hashidemos.io:9999/phpldapadmin-server/
 * user: cn=admin,dc=example,dc=org
 password: admin
 * Go to import and import your LDIF file [LDAPVAULT.LDIF](LDAPVAULT.LDIF) (don't stop on errors)
