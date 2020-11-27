@@ -1,7 +1,7 @@
 # For full documentation and examples, see
 #     https://www.nomadproject.io/docs/job-specification/job.html
 job "presentation" {
-  datacenters = ["eu-west-2","ukwest","sa-east-1","ap-northeast-1","dc1"]
+  datacenters = ["eu-west-2a","eu-west-2b","eu-west-2c"]
   type = "service"
 
   group "presentation" {
