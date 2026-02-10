@@ -65,6 +65,6 @@ job "open-webui" {
       }
     }
 
-    
+  }
 
   }
