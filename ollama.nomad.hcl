@@ -41,7 +41,7 @@ job "ollama" {
       }
     }
 
-    task "download-granite3.3-model" {
+    task "download-granite4.0-model" {
       driver = "exec"
       lifecycle {
         hook = "poststart"
@@ -63,7 +63,7 @@ EOH
         command = "/bin/bash"
         args = [
           "-c",
-          "curl -X POST ${OLLAMA_BASE_URL}/api/pull -d '{\"name\": \"granite3.3:2b\"}'"
+          "curl -X POST ${OLLAMA_BASE_URL}/api/pull -d '{\"name\": \"hf.co/ibm-granite/granite-4.0-h-tiny-GGUF:Q4_K_M\"}'"
         ]
       }
     }
