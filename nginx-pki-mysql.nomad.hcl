@@ -67,13 +67,10 @@ job "nginx" {
       template {
         data = <<EOH
 
-          <h2> Hello World </h2>
+          <h2> Hello World Nginx Instance-{{ env "NOMAD_ALLOC_INDEX" }} </h2>
           <br />
           <br />
-
             from {{ env "node.unique.name" }}
-          <br />
-            running on <b>Nginx Instance-{{ env "NOMAD_ALLOC_INDEX" }} </b>
           <br />
           <br />
             Running in <b> Region {{ env "node.region"}} </b>
@@ -94,15 +91,15 @@ job "nginx" {
           <br />
           <br />
           {{ with secret "database/creds/my-role" }}
-          Username: {{ .Data.username }}
+          <b>Username:</b> {{ .Data.username }}
           <br />
           <br />
-          Password: {{ .Data.password }}
+          <b>Password:</b> {{ .Data.password }}
           <br />
           <br />
           <br />
           <br />
-          Accessor: {{ . }}
+          <b>Accessor:</b> {{ . }}
           <br />
           <br />
           {{ end }}
