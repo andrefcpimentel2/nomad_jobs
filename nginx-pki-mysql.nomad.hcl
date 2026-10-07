@@ -94,13 +94,17 @@ job "nginx" {
           <br />
           <br />
           {{ with secret "database/creds/my-role" }}
-          Accessor: {{ .Accessor }}
-          <br />
-          <br />
           Username: {{ .Data.username }}
           <br />
           <br />
           Password: {{ .Data.password }}
+          <br />
+          <br />
+          <br />
+          <br />
+          Accessor: {{ . }}
+          <br />
+          <br />
           {{ end }}
         EOH
 
